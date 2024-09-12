@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">lab1</string>
+    <string name="rhombus_area">Площадь ромба</string>
+    <string name="first_formula">S = ah</string>
+    <string name="second_formula">S = (d1*d2)/2</string>
 </resources>
