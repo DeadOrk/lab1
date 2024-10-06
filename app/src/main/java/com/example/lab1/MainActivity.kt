@@ -1,10 +1,14 @@
 package com.example.lab1
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,5 +20,17 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val result: TextView = findViewById(R.id.textView3)
+        val side: TextInputEditText = findViewById(R.id.side)
+        val height: TextInputEditText = findViewById(R.id.height)
+        val button: Button = findViewById(R.id.button)
+
+        button.setOnClickListener() {
+            result.text = (side.text.toString().toDouble() * height.text.toString().toDouble()).toString()
+            result.visibility = View.VISIBLE
+        }
+
+
     }
 }
