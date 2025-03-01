@@ -1,34 +1,38 @@
 package com.example.lab1
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val result: TextView = findViewById(R.id.textView3)
-        val side: TextInputEditText = findViewById(R.id.side)
-        val height: TextInputEditText = findViewById(R.id.height)
-        val button: Button = findViewById(R.id.button)
+        val result: TextView = findViewById(R.id.resultTextView)
+        val param1: EditText = findViewById(R.id.firstInput)
+        val param2: EditText = findViewById(R.id.secondInput)
+        val button: Button = findViewById(R.id.calculateButton)
+        val whichFormulaUsed: RadioGroup = findViewById(R.id.formulaSwitch)
 
-        button.setOnClickListener() {
-            result.text = (side.text.toString().toDouble() * height.text.toString().toDouble()).toString()
-            result.visibility = View.VISIBLE
+        button.setOnClickListener {
+
+            if (whichFormulaUsed.checkedRadioButtonId == R.id.firstFormula)
+            {
+                result.text = (param1.text.toString().toDouble() * param2.text.toString().toDouble()).toString()
+            }
+            else
+            {
+                result.text = (param1.text.toString().toDouble() * param2.text.toString().toDouble() / 2).toString()
+            }
+
+            //result.text = (param1.text.toString().toDouble() * param2.text.toString().toDouble()).toString()
+            //result.visibility = View.VISIBLE
         }
 
 

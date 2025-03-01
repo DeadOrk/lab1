@@ -3,4 +3,5 @@
     <string name="rhombus_area">Площадь ромба</string>
     <string name="first_formula">S = ah</string>
     <string name="second_formula">S = (d1*d2)/2</string>
+    <string name="calculate">Рассчитать</string>
 </resources>
